@@ -3,6 +3,9 @@ class Solution:
         if not nums or len(nums)<4:
             return []
         
+
+        #Without using hashmaps. Complexity - O(n3)
+
         res = []
         nums.sort()
         for i in range(len(nums)-3):
