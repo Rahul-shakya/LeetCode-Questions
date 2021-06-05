@@ -10,7 +10,7 @@ class Solution:
             left = i+1
             right = len(nums)-1
             while(left < right):
-                if((currA + nums[left] + nums[right]) == 0 and [currA,nums[left],nums[right]] not in res):
+                if((currA + nums[left] + nums[right]) == 0):
                     res.append([currA,nums[left],nums[right]])
                     while left < right and nums[left] == nums[left+1]:
                         left += 1
