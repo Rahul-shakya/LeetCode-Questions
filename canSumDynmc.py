@@ -5,7 +5,7 @@
 # Timestamp: 01:09:56
 # A slight different approach.
 
-def func(target, numbers, memo = {}):
+def func(target, numbers, memo = None):
     if(target in memo):
         return memo[target]
     if(target == 0):
