@@ -6,6 +6,8 @@
 # A slight different approach.
 
 def func(target, numbers, memo = None):
+    if memo is None:
+        memo = {}
     if(target in memo):
         return memo[target]
     if(target == 0):
@@ -16,7 +18,7 @@ def func(target, numbers, memo = None):
     for currNum in numbers:
         remainingSum = target - currNum
         memo[target] = func(remainingSum, numbers, memo)
-        res = res or func(remainingSum, numbers, memo)
+        res = res or memo[target] 
     return res
         
         
