@@ -1,3 +1,9 @@
+# bestSum
+# from dynamic programming video YT
+# https://www.youtube.com/watch?v=oBt53YbR9Kk&t=11470s
+# https://leetcode.com/playground/Ux7hUcVM
+# Timestamp: 01:52:06
+
 
 def bestSumNoDP(target, arr):
     if target == 0:
