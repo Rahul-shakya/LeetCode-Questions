@@ -26,7 +26,7 @@ testCases = [(7, [2, 3]), (7, [5, 3, 4, 7]), (7, [2, 4]), (8, [3, 2, 5]), (300, 
 
 for test in testCases:
     targetSum, numbers = test
-    print(f'canSum({targetSum}, {numbers})={func(targetSum, numbers)}')
+    print(f'howSum({targetSum}, {numbers})={func(targetSum, numbers)}')
 
 
         
