@@ -17,6 +17,7 @@ class Solution:
                 currMax = 1
         return(max(ans, currMax)) 
 
+    
     def longestConsecutive2(self, nums: List[int]) -> int:
         ans = 0
         setOfNums = set(nums)
