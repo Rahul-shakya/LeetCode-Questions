@@ -11,7 +11,7 @@ class Solution:
         return(ans)
 
     
-    def findAnagrams(self, s: str, p: str) -> List[int]:
+    def findAnagrams2(self, s: str, p: str) -> List[int]:
 
         l = 0
         r = len(p) - 1
