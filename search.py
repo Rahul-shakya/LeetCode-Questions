@@ -13,8 +13,4 @@ class Solution:
         return -1
     
 
-        for currList in matrix:
-            if(search(self, currList, target)):
-                return True
-        return False
-    
+  
