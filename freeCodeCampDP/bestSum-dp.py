@@ -7,7 +7,7 @@
 
 from typing import List
 
-
+# in this we cannot return early because we have to check all combinations
 def bestSumNoDP(target, arr):
     if target == 0:
         return []
