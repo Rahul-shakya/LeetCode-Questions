@@ -4,6 +4,20 @@
 # https://leetcode.com/playground/CvycqXzU
 # Timestamp: 01:29:29
 
+def howSumNoDP(target, numbers):
+    if target == 0:
+        return []
+    if target <= 0:
+        return None
+    for currEle in numbers:
+        remainT = target - currEle
+        ans = howSumNoDP(remainT, numbers)
+        if ans is not None:
+            return ans + [currEle]
+    return None
+
+
+
 def func(target, numbers, memo = None):
     if memo is None:
         memo = {}

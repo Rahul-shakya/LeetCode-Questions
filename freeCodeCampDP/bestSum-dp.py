@@ -18,6 +18,7 @@ def bestSumNoDP(target, arr):
             combi = result + [num]
             if(ans == None or (len(combi) < len(ans))):
                 ans = combi
+                print(f'{combi} {ans}')
     return ans
 
 
@@ -41,10 +42,10 @@ def bestSumDP(target, arr, memo = None):
     memo[target] = ans
     return ans
 
+# , (7, [5, 3, 4, 7]), (7, [2, 4]), (8, [2, 3, 5])
 
-
-testCases = [(7, [2, 4, 3]), (7, [5, 3, 4, 7]), (7, [2, 4]), (8, [2, 3, 5])]
+testCases = [(8, [2, 4, 3])]
 
 for test in testCases:
     targetSum, numbers = test
-    print(f'bestSumDP({targetSum}, {numbers})={bestSumNoDP(targetSum, numbers)}')
+    print(f'bestSumNoDP({targetSum}, {numbers})={bestSumNoDP(targetSum, numbers)}')
