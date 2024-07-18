@@ -8,6 +8,7 @@
 from typing import List
 
 # in this we cannot return early because we have to check all combinations
+# this is Leetcode 322. Coin Change
 def bestSumNoDP(target, arr):
     if target == 0:
         return []
@@ -47,21 +48,62 @@ def bestSumDP(target, arr, memo = None):
 
 # , (7, [5, 3, 4, 7]), (7, [2, 4]), (8, [2, 3, 5])
 
-testCases = [(8, [2, 3, 5])]
+testCases = [(100, [1,2, 3, 50])]
 
 for test in testCases:
     targetSum, numbers = test
-    print(f'bestSumNoDP({targetSum}, {numbers})={bestSumNoDP(targetSum, numbers)}')
+    print(f'bestSumNoDP({targetSum}, {numbers})={bestSumDP(targetSum, numbers)}')
 
 
 # -------------------------------------------------------------------
-# another method
+# # another method
+# from numpy import inf
+# class Solution:
+#     def __init__(self):
+#         self.ansFin = (inf, None)
+
+#     def howSum(self, target, numbers, currList = []):
+#         if target == 0:
+#             return []
+#         if target <= 0:
+#             return None
+#         for currEle in numbers:
+#             remainT = target - currEle
+#             currList.append(currEle)
+#             ans = self.howSum(remainT, numbers, currList)
+#             if ans is not None:
+#                 res = ans + currList
+#                 currLen = len(res)
+#                 ansLen = self.ansFin[0]
+#                 if(currLen < ansLen):
+#                     self.ansFin = (currLen, res)
+#                 # print(res)
+#             currList.pop()
+#         return None
+
+
+#     def bestSum(self, candidates: List[int], target: int) -> List[List[int]]:
+
+#         self.howSum(target, candidates)
+#         print(self.ansFin)
+
+        
+# obj = Solution()
+
+# obj.bestSum([2,4,3,7], 8)
+
+
+# ----------------------- memoization did not work ---------------------------
 from numpy import inf
 class Solution:
     def __init__(self):
         self.ansFin = (inf, None)
 
-    def howSum(self, target, numbers, currList = []):
+    def howSum(self, target, numbers, memo = None, currList = []):
+        if memo is None:
+            memo = {}
+        if target in memo:
+            return memo[target]
         if target == 0:
             return []
         if target <= 0:
@@ -69,7 +111,7 @@ class Solution:
         for currEle in numbers:
             remainT = target - currEle
             currList.append(currEle)
-            ans = self.howSum(remainT, numbers, currList)
+            ans = self.howSum(remainT, numbers, memo, currList)
             if ans is not None:
                 res = ans + currList
                 currLen = len(res)
@@ -78,6 +120,8 @@ class Solution:
                     self.ansFin = (currLen, res)
                 # print(res)
             currList.pop()
+        
+        memo[target] = self.ansFin[1]
         return None
 
 
@@ -89,4 +133,4 @@ class Solution:
         
 obj = Solution()
 
-obj.bestSum([2,4,3,7], 8)
+obj.bestSum([5,25,50], 100)
